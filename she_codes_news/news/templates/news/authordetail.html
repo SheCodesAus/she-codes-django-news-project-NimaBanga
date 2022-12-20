@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div>
+  <h2>Author name: {{ author.username }}</h2>
+  <p>Date joined: {{ author.date_joined }}</p>
+</div>
+
+<h2>Stories Published by {{ author.username }}:</h2>
+<div>
+    {% for story in author.stories.all %}
+        {% include './storyCard.html' with story=story %}
+    {% endfor %}
+</div>
+
+{% endblock %}
